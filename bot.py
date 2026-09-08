@@ -364,7 +364,7 @@ async def generate_session(event):
                 otp = otp_msg.text.replace(" ", "").strip()
                 
                 try:
-                    await temp_client.sign_in(phone, send_code.phone_code_hash, otp)
+                    await temp_client.sign_in(phone=phone, code=otp, phone_code_hash=send_code.phone_code_hash)
                 except SessionPasswordNeededError:
                     await conv.send_message("🔐 Is account me 2FA (Two-Step Verification) laga hai. Apna password bhejo:")
                     pwd_msg = await conv.get_response()
