@@ -329,7 +329,8 @@ async def global_delete(event):
         except: pass
 
 # 🔥 ------------------ SESSION GENERATOR (IN-BUILT) ------------------ 🔥
-@client.on(events.NewMessage(pattern=r"^(?i)(/gensec|🔑 Gen Session)$"))
+@client.on(events.NewMessage(pattern=r"(?i)^(/gensec|🔑 Gen Session)$"))
+
 @admin_only
 async def generate_session(event):
     admin_id = event.sender_id
